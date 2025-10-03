@@ -24,7 +24,7 @@ const About: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       const interval = setInterval(() => {
-        setCounters(prev => {
+        setCounters((prev: typeof counters) => {
           const newCounters = { ...prev }
           if (newCounters.yearsexperience < 1) newCounters.yearsexperience++
           if (newCounters.projectscompleted < 3) newCounters.projectscompleted++
@@ -38,9 +38,9 @@ const About: React.FC = () => {
     return () => clearTimeout(timer)
   }, [])
 
-  const fullBio = `I'm a passionate software engineer with over 1 years of experience in creating digital solutions that make a difference. My journey in tech began with a curiosity about how things work, and it has evolved into a career dedicated to crafting exceptional user experiences.
-
-I specialize in modern web technologies, with expertise in React, Node.js, and JavaScript. I believe in writing clean, maintainable code and creating applications that not only function flawlessly but also delight users.`
+  const fullBio = `I'm a passionate software engineer with over 1 year of experience in creating digital solutions that make a difference. My journey in tech began with a curiosity about how things work, and it has evolved into a career dedicated to crafting exceptional user experiences.
+  
+  I specialize in modern web technologies, with expertise in React, Node.js, and JavaScript.`
 
   const shortBio = fullBio.substring(0, 200) + '...'
 
@@ -70,7 +70,7 @@ I specialize in modern web technologies, with expertise in React, Node.js, and J
               transition={{ duration: 0.8, delay: 0.4 }}
               className={`${styles.textTextMuted} ${styles.aboutSubtitle}`}
             >
-      
+            
             </motion.p>
           </div>
 

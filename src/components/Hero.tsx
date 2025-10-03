@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
         }, 100)
       } else {
         setIsDeleting(false)
-        setCurrentRole((prev) => (prev + 1) % roles.length)
+        setCurrentRole((prev: number) => (prev + 1) % roles.length)
       }
     } else {
       if (displayText.length < text.length) {
@@ -145,6 +145,16 @@ const Hero: React.FC = () => {
             >
               <FiEye size={20} />
               View My Work
+            </motion.button>
+
+            <motion.button
+              onClick={() => window.open('/assets/cv.pdf', '_blank')}
+              className={`${styles.btn} ${styles.btnSecondary}`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FiDownload size={20} />
+              Download CV
             </motion.button>
           </motion.div>
 
