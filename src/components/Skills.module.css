@@ -1,0 +1,275 @@
+/* Skills Section Styles */
+.skills {
+  position: relative;
+}
+
+.skillsContainer {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.skillsHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.skillsTitle {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.skillsTitleHighlight {
+  color: var(--primary-color);
+}
+
+.skillsSubtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.categoryFilter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.categoryBtn {
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.categoryBtnActive {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.categoryBtnInactive {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+
+.categoryBtnInactive:hover {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.skillsGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skillsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.skillCard {
+  background: linear-gradient(135deg, var(--surface-color), var(--bg-secondary));
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.skillCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.skillCard:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
+}
+
+.skillHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.skillInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skillIcon {
+  padding: 0.75rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(245, 158, 11, 0.05));
+  color: var(--primary-color);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+}
+
+.skillName {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.skillLevel {
+  text-align: right;
+}
+
+.skillPercentage {
+  font-size: 1.75rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.25rem;
+}
+
+.skillProficiency {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.progressContainer {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 0.75rem;
+  background: linear-gradient(135deg, var(--bg-tertiary), var(--border-light));
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 1.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.progressFillExpert {
+  background-color: #10b981;
+  width: 95%;
+}
+
+.progressFillAdvanced {
+  background-color: #3b82f6;
+  width: 85%;
+}
+
+.progressFillIntermediate {
+  background-color: #f59e0b;
+  width: 70%;
+}
+
+.progressFillBeginner {
+  background-color: #f97316;
+  width: 50%;
+}
+
+.progressLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skillsHeader {
+    margin-bottom: 3rem;
+  }
+
+  .categoryFilter {
+    margin-bottom: 2rem;
+  }
+
+  .skillsGrid {
+    gap: 1rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .skillsHeader {
+    margin-bottom: 2rem;
+  }
+
+  .categoryFilter {
+    gap: 0.5rem;
+  }
+
+  .categoryBtn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Modern Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
