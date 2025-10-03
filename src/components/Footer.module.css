@@ -377,8 +377,136 @@
   height: 1rem;
 }
 
-/* Responsive Design */
-@media (min-width: 768px) {
+/* Mobile-First Responsive Design */
+@media (max-width: 480px) {
+  /* Extra small devices (phones) */
+  .container {
+    padding: 0 1rem;
+  }
+
+  .footerContent {
+    padding: 2rem 0;
+  }
+
+  .footerGrid {
+    gap: 1.5rem;
+  }
+
+  .brandColumn {
+    gap: 0.75rem;
+  }
+
+  .brandTitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .brandDescription {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .socialLinks {
+    gap: 0.75rem;
+  }
+
+  .socialLink {
+    padding: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 48px; /* Touch-friendly */
+    min-height: 48px;
+  }
+
+  .socialIcon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .footerColumn {
+    gap: 0.75rem;
+  }
+
+  .columnTitle {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+
+  .footerList {
+    gap: 0.25rem;
+  }
+
+  .footerLink {
+    padding: 0.75rem 0;
+    font-size: 0.875rem;
+    min-height: 48px; /* Touch-friendly */
+  }
+
+  .newsletterSection {
+    gap: 0.75rem;
+  }
+
+  .newsletterDescription {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .newsletterInput {
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+
+  .newsletterSubmitButton {
+    padding: 0.75rem;
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .newsletterSubmitIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .newsletterSuccess {
+    font-size: 0.875rem;
+    padding: 0.75rem;
+  }
+
+  .bottomBar {
+    padding: 1.5rem 0;
+  }
+
+  .bottomBarContent {
+    gap: 0.75rem;
+  }
+
+  .copyright {
+    font-size: 0.875rem;
+  }
+
+  .backToTopButton {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    min-height: 48px;
+  }
+
+  .backToTopIcon {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Small devices (large phones, small tablets) */
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .footerContent {
+    padding: 2.5rem 0;
+  }
+
   .footerGrid {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -387,11 +515,46 @@
   .bottomBarContent {
     flex-direction: row;
   }
+
+  .socialLinks {
+    gap: 0.875rem;
+  }
+
+  .socialLink {
+    padding: 0.875rem;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  /* Medium devices (tablets) */
+  .container {
+    padding: 0 2rem;
+  }
+
+  .footerContent {
+    padding: 3rem 0;
+  }
+
+  .footerGrid {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .bottomBarContent {
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 1024px) {
+  /* Large devices (desktops) */
   .container {
     padding: 0 2rem;
+  }
+
+  .footerContent {
+    padding: 3rem 0;
   }
 
   .footerGrid {
@@ -402,10 +565,71 @@
   .brandColumn {
     grid-column: span 1;
   }
+
+  .bottomBarContent {
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 1440px) {
+  /* Extra large devices */
   .container {
     max-width: 1400px;
+  }
+}
+
+/* Touch-friendly enhancements */
+@media (hover: none) and (pointer: coarse) {
+  /* Touch devices only */
+  .socialLink:hover,
+  .footerLink:hover,
+  .backToTopButton:hover {
+    transform: none;
+  }
+
+  .socialLink:active,
+  .footerLink:active,
+  .backToTopButton:active {
+    transform: translateY(-1px);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .footer,
+  .socialLink,
+  .newsletterInput,
+  .backToTopButton {
+    border-width: 2px;
+  }
+
+  .footerLink {
+    border-width: 1px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .socialLink:hover,
+  .footerLink:hover,
+  .backToTopButton:hover,
+  .heartIcon {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .footerContent {
+    padding: 1.5rem 0;
+  }
+
+  .footerGrid {
+    gap: 1rem;
+  }
+
+  .bottomBar {
+    padding: 1rem 0;
   }
 }

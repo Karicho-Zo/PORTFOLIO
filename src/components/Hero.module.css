@@ -183,8 +183,83 @@
 
 /* Scroll indicator removed for compact design */
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Mobile-First Responsive Design */
+@media (max-width: 480px) {
+  /* Extra small devices (phones) */
+  .hero {
+    min-height: 60vh;
+    padding: 1.5rem 0;
+  }
+
+  .heroContent {
+    padding: 0.5rem;
+    max-width: 100%;
+  }
+
+  .mainHeading {
+    margin-bottom: 1rem;
+  }
+
+  .nameText {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .roleText {
+    font-size: clamp(1.125rem, 5vw, 1.5rem);
+    height: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .description {
+    font-size: clamp(1rem, 4vw, 1.125rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px; /* Touch-friendly */
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .socialLinks {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .socialLink {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.75rem;
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .particle {
+    width: 1px;
+    height: 1px;
+  }
+
+  /* Reduce animation intensity on mobile */
+  @media (prefers-reduced-motion: reduce) {
+    .particle {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Small devices (large phones, small tablets) */
   .hero {
     min-height: 65vh;
     padding: 2rem 0;
@@ -196,6 +271,12 @@
 
   .ctaButtons {
     gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.875rem 1.5rem;
+    min-height: 48px;
   }
 
   .socialLinks {
@@ -203,34 +284,114 @@
   }
 
   .socialLink {
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0.875rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 769px) and (max-width: 1023px) {
+  /* Medium devices (tablets) */
   .hero {
-    min-height: 60vh;
-    padding: 1.5rem 0;
+    min-height: 70vh;
+    padding: 3rem 0;
   }
 
   .heroContent {
-    padding: 0.5rem;
+    padding: 1.5rem;
   }
 
   .ctaButtons {
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
 
-  .socialLinks {
-    gap: 0.5rem;
+  .btn {
+    padding: 1rem 2rem;
+    min-width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Large devices (desktops) */
+  .hero {
+    min-height: 75vh;
+    padding: 4rem 0;
   }
 
-  .socialLink {
-    width: 2.25rem;
-    height: 2.25rem;
-    padding: 0.625rem;
+  .heroContent {
+    padding: 2rem;
+  }
+
+  .ctaButtons {
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    padding: 1rem 2rem;
+    min-width: auto;
+  }
+}
+
+/* Touch-friendly enhancements */
+@media (hover: none) and (pointer: coarse) {
+  /* Touch devices only */
+  .btn:hover {
+    transform: none;
+  }
+
+  .socialLink:hover {
+    transform: none;
+  }
+
+  .btn:active {
+    transform: translateY(-1px);
+  }
+
+  .socialLink:active {
+    transform: translateY(-2px);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .heroBackground {
+    opacity: 0.3;
+  }
+
+  .btn {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .cursor,
+  .particle {
+    animation: none;
+  }
+
+  .btn:hover,
+  .socialLink:hover {
+    transform: none;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: 50vh;
+    padding: 1rem 0;
+  }
+
+  .mainHeading {
+    margin-bottom: 0.5rem;
+  }
+
+  .ctaButtons {
+    margin-bottom: 1rem;
   }
 }

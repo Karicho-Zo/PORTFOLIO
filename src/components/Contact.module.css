@@ -352,24 +352,197 @@
   flex-shrink: 0;
 }
 
-/* Responsive Design */
-@media (min-width: 768px) {
+/* Mobile-First Responsive Design */
+@media (max-width: 480px) {
+  /* Extra small devices (phones) */
   .section {
-    padding: 5rem 0;
+    padding: 2rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2rem;
   }
 
   .title {
-    font-size: 3rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .contentGrid {
+    gap: 2rem;
+  }
+
+  .contactSection {
+    gap: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Contact details mobile layout */
+  .contactDetails {
+    gap: 1rem;
+  }
+
+  .contactLink {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .contactIconWrapper {
+    padding: 0.75rem;
+  }
+
+  .contactIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .contactLabel {
+    font-size: 0.875rem;
+  }
+
+  .contactValue {
+    font-size: 1rem;
+  }
+
+  /* Social links mobile */
+  .socialLinksContainer {
+    gap: 0.75rem;
+  }
+
+  .socialLink {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.75rem;
+  }
+
+  .socialIcon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Contact form mobile */
+  .contactForm {
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .formTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .formGroup {
+    margin-bottom: 1.25rem;
+  }
+
+  .formLabel {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .formInput,
+  .formTextarea {
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 48px; /* Touch-friendly */
+  }
+
+  .formTextarea {
+    min-height: 120px;
+  }
+
+  .submitButton {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px;
+    margin-top: 0.75rem;
+  }
+
+  .statusMessage {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Small devices (large phones, small tablets) */
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
   }
 
   .contactForm {
-    padding: 3rem;
+    padding: 2rem;
+  }
+
+  .formInput,
+  .formTextarea {
+    padding: 1.125rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  /* Medium devices (tablets) */
+  .container {
+    padding: 0 2rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .contactForm {
+    padding: 2.5rem;
   }
 }
 
 @media (min-width: 1024px) {
+  /* Large devices (desktops) */
   .container {
     padding: 0 2rem;
+  }
+
+  .section {
+    padding: 5rem 0;
   }
 
   .contentGrid {
@@ -391,7 +564,61 @@
 }
 
 @media (min-width: 1440px) {
+  /* Extra large devices */
   .container {
     max-width: 1400px;
+  }
+}
+
+/* Touch-friendly enhancements */
+@media (hover: none) and (pointer: coarse) {
+  /* Touch devices only */
+  .contactLink,
+  .socialLink {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  .contactLink:hover,
+  .socialLink:hover {
+    transform: none; /* Remove hover transforms on touch */
+  }
+
+  /* Ensure form elements are touch-friendly */
+  .formInput,
+  .formTextarea,
+  .submitButton {
+    min-height: 48px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .contactLink,
+  .socialLink,
+  .contactForm {
+    border-width: 2px;
+  }
+
+  .formInput,
+  .formTextarea {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .contactLink,
+  .socialLink,
+  .submitButton,
+  .formInput,
+  .formTextarea {
+    transition: none;
+  }
+
+  .contactLink:hover,
+  .socialLink:hover,
+  .submitButton:hover {
+    transform: none;
   }
 }

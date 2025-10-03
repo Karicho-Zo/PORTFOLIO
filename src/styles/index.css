@@ -1515,23 +1515,178 @@ textarea:valid {
   border-color: var(--success-color);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Mobile-First Responsive Design */
+@media (max-width: 480px) {
+  /* Extra small devices (phones) */
+  html {
+    font-size: 14px;
+  }
+
   .container {
-    padding: 0 0.75rem;
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  /* Typography for mobile */
+  h1 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+
+  /* Button sizing for touch */
+  .btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px; /* Touch target size */
+    min-width: 48px;
+  }
+
+  /* Form inputs for mobile */
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 1rem;
+    min-height: 48px;
+  }
+
+  /* Grid adjustments */
+  .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Flex direction changes */
+  .flex-row {
+    flex-direction: column;
+  }
+
+  /* Spacing adjustments */
+  .gap-4, .gap-6, .gap-8, .gap-12 {
+    gap: 1rem;
+  }
+
+  .mb-8, .mb-12, .mb-16 {
+    margin-bottom: 2rem;
+  }
+
+  .py-4, .py-6, .py-8 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Small devices (large phones, small tablets) */
+  .container {
+    padding: 0 1.5rem;
   }
 
   .section {
     padding: 3rem 0;
   }
+
+  /* Grid for small tablets */
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Maintain row layout where appropriate */
+  .md\:flex-row {
+    flex-direction: row;
+  }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 769px) and (max-width: 1023px) {
+  /* Medium devices (tablets) */
   .container {
-    padding: 0 0.5rem;
+    padding: 0 2rem;
+  }
+
+  /* Grid adjustments for tablets */
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Large devices (desktops) - existing styles maintained */
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* Touch-friendly enhancements */
+@media (hover: none) and (pointer: coarse) {
+  /* Touch devices only */
+  .btn, button, a[role="button"] {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 1rem;
+  }
+
+  /* Remove hover effects on touch devices */
+  .btn:hover,
+  button:hover,
+  a:hover {
+    transform: none;
+  }
+
+  /* Ensure tap targets are large enough */
+  [role="button"], button, .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Ensure sharp graphics on high DPI displays */
+  .btn, button, input, textarea {
+    border-width: 0.5px;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .section {
+    padding: 1.5rem 0;
+  }
+
+  /* Reduce vertical spacing in landscape */
+  .mb-8, .mb-12, .mb-16 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .container {
+    max-width: none;
+    padding: 0;
   }
 
   .section {
-    padding: 2rem 0;
+    padding: 1rem 0;
+  }
+
+  /* Hide interactive elements */
+  .btn, button, nav, .social-links {
+    display: none !important;
+  }
+
+  /* Ensure good contrast for text */
+  body {
+    color: #000 !important;
+    background: #fff !important;
   }
 }
