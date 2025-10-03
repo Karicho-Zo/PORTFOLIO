@@ -41,13 +41,21 @@ const Contact: React.FC = () => {
     setSubmitStatus(null)
 
     try {
-      // EmailJS integration would go here
-      // For now, we'll simulate an API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      const response = await fetch('http://localhost:3001/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
 
-      // console.log('Form data:', data)
-      setSubmitStatus('success')
-      reset()
+      if (response.ok) {
+        setSubmitStatus('success')
+        reset()
+      } else {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to send message')
+      }
     } catch (error) {
       console.error('Error sending message:', error)
       setSubmitStatus('error')
