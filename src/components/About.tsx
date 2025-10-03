@@ -10,7 +10,6 @@ const About: React.FC = () => {
   const [counters, setCounters] = useState({
     yearsexperience: 0,
     projectscompleted: 0,
-    clients: 0,
   })
 
   const ref = useRef(null)
@@ -70,7 +69,7 @@ const About: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className={`${styles.textTextMuted} ${styles.aboutSubtitle}`}
             >
-            
+              Get to know more about my journey and expertise
             </motion.p>
           </div>
 
