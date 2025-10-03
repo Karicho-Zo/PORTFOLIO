@@ -40,6 +40,15 @@
   padding: 1rem;
 }
 
+.textCenter {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .mainHeading {
   margin-bottom: 1.5rem;
 }
@@ -73,6 +82,9 @@
 
 .typingText {
   position: relative;
+  display: inline-block;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 .cursor {
@@ -194,10 +206,14 @@
   .heroContent {
     padding: 0.5rem;
     max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .mainHeading {
     margin-bottom: 1rem;
+    width: 100%;
+    text-align: center;
   }
 
   .nameText {
@@ -208,8 +224,15 @@
 
   .roleText {
     font-size: clamp(1.125rem, 5vw, 1.5rem);
-    height: 2.5rem;
+    min-height: 2.5rem;
     margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    width: 100%;
+    overflow: hidden;
   }
 
   .description {
