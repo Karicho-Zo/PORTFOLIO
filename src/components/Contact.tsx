@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { useForm } from 'react-hook-form'
+import emailjs from '@emailjs/browser'
 import {
   FiMail,
   FiPhone,
@@ -41,21 +42,35 @@ const Contact: React.FC = () => {
     setSubmitStatus(null)
 
     try {
-      const response = await fetch('http://localhost:3001/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-      if (response.ok) {
-        setSubmitStatus('success')
-        reset()
-      } else {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Failed to send message')
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration missing. Please check your .env file.')
       }
+
+      // Prepare email template parameters
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        to_email: import.meta.env.VITE_CONTACT_EMAIL || 'isaackaricho@gmail.com',
+        subject: data.subject,
+        message: data.message,
+        reply_to: data.email,
+      }
+
+      // Send email using EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      )
+
+      setSubmitStatus('success')
+      reset()
     } catch (error) {
       console.error('Error sending message:', error)
       setSubmitStatus('error')

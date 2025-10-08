@@ -469,27 +469,222 @@
   gap: 1rem;
 }
 
-/* Responsive Design */
+/* Enhanced Responsive Design */
 @media (max-width: 768px) {
   .featuredSection {
     margin-bottom: 3rem;
   }
 
   .filterButtons {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    gap: 0.75rem;
+  }
+
+  .filterBtn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    min-height: 48px;
   }
 
   .projectsGrid {
-    gap: 1rem;
+    gap: 1.25rem;
+  }
+
+  .projectCard {
+    margin-bottom: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
+  /* Enhanced mobile project styles */
+  .projectsContainer {
+    padding: 0 0.5rem;
+  }
+
+  .projectsHeader {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .projectsTitle {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+    margin-bottom: 1rem;
+  }
+
+  .projectsSubtitle {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .featuredSection {
+    margin-bottom: 2.5rem;
+  }
+
+  .featuredTitle {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .featuredGrid {
+    gap: 1.5rem;
+  }
+
+  .featuredCard {
+    border-radius: 0.75rem;
+  }
+
+  .featuredImage {
+    height: 12rem;
+  }
+
+  .featuredContent {
+    padding: 1.25rem;
+  }
+
+  .featuredCardTitle {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .featuredDescription {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    -webkit-line-clamp: 3;
+  }
+
+  .featuredTechGrid {
+    gap: 0.375rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .featuredTechTag {
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+  }
+
+  .featuredLinks {
+    gap: 0.75rem;
+  }
+
+  .featuredLink {
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0.75rem;
+  }
+
+  .filterButtons {
+    margin-bottom: 2rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .filterBtn {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.875rem;
+    min-height: 50px; /* Enhanced touch target */
+    border-radius: 0.75rem;
+    font-weight: 500;
+  }
+
+  .projectsGrid {
+    gap: 1.5rem;
+  }
+
+  .projectCard {
+    border-radius: 0.75rem;
+  }
+
+  .projectImage {
+    height: 10rem;
+  }
+
+  .projectCardContent {
+    padding: 1rem;
+  }
+
+  .projectTitle {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .projectDescription {
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .projectTechGrid {
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .projectTechTag {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .projectLinks {
+    gap: 0.5rem;
+  }
+
+  .projectLink {
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0.625rem;
+  }
+
+  /* Enhanced modal for mobile */
   .modal {
-    padding: 0.5rem;
+    padding: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .modalContent {
+    max-width: calc(100vw - 1.5rem);
+    border-radius: 1rem;
+  }
+
+  .modalImage {
+    height: 12rem;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .modalBody {
+    padding: 1.25rem;
+  }
+
+  .modalTitle {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .modalDescription {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .modalTechGrid {
+    gap: 0.375rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .modalTechTag {
+    padding: 0.25rem 0.625rem;
+    font-size: 0.8rem;
   }
 
   .modalButtons {
     flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .modalClose {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.625rem;
+    min-width: 44px;
+    min-height: 44px;
   }
 }

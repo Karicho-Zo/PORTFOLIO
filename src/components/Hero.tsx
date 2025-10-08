@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FiGithub, FiLinkedin, FiTwitter, FiDownload, FiEye } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiTwitter, FiEye } from 'react-icons/fi'
 import styles from './Hero.module.css'
 
 const Hero: React.FC = () => {
@@ -145,16 +145,6 @@ const Hero: React.FC = () => {
             >
               <FiEye size={20} />
               View My Work
-            </motion.button>
-
-            <motion.button
-              onClick={() => window.open('/assets/cv.pdf', '_blank')}
-              className={`${styles.btn} ${styles.btnSecondary}`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FiDownload size={20} />
-              Download CV
             </motion.button>
           </motion.div>
 

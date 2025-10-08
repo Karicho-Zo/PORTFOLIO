@@ -61,7 +61,7 @@ const About: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className={styles.aboutTitle}
             >
-              About <span className={styles.aboutTitleHighlight}>Me</span>
+               About <span className={styles.aboutTitleHighlight}>Me</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -69,7 +69,7 @@ const About: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className={`${styles.textTextMuted} ${styles.aboutSubtitle}`}
             >
-              Get to know more about my journey and expertise
+            
             </motion.p>
           </div>
 

@@ -321,103 +321,134 @@
   }
 
   .aboutHeader {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 0 0.5rem;
   }
 
   .aboutTitle {
     font-size: clamp(1.75rem, 7vw, 2.25rem);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
   }
 
   .aboutSubtitle {
-    font-size: 1rem;
+    font-size: 1.125rem;
     max-width: 100%;
-    line-height: 1.5;
+    line-height: 1.6;
+    margin: 0 auto;
   }
 
   .aboutContent {
-    gap: 2rem;
+    gap: 2.5rem;
     grid-template-columns: 1fr;
+    padding: 0 0.5rem;
   }
 
   .profileSection {
     justify-content: center;
+    margin-bottom: 1rem;
   }
 
   .profileWrapper {
-    width: 12rem;
-    height: 12rem;
+    width: 13rem;
+    height: 13rem;
   }
 
   .profileContent {
-    width: 10rem;
-    height: 10rem;
+    width: 11rem;
+    height: 11rem;
   }
 
   .profileImage {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
   }
 
   .floatingDecoration1 {
-    width: 1.5rem;
-    height: 1.5rem;
-    top: -0.5rem;
-    right: -0.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    top: -0.75rem;
+    right: -0.75rem;
   }
 
   .floatingDecoration2 {
-    width: 1.25rem;
-    height: 1.25rem;
-    bottom: -0.5rem;
-    left: -0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    bottom: -0.75rem;
+    left: -0.75rem;
   }
 
   .aboutInfo {
-    gap: 1.25rem;
+    gap: 1.5rem;
+    text-align: center;
   }
 
   .bioSection {
-    gap: 1rem;
+    gap: 1.25rem;
+    text-align: left;
   }
 
   .bioText {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
   }
 
   .readMoreBtn {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.875rem;
-    min-height: 48px; /* Touch-friendly */
-    align-self: stretch;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    min-height: 52px; /* Enhanced touch target */
+    align-self: center;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
   }
 
   .statsGrid {
-    gap: 1rem;
+    gap: 1.25rem;
+    margin-top: 1rem;
   }
 
   .statCard {
-    padding: 1.25rem 0.75rem;
-    min-height: 120px; /* Touch-friendly */
+    padding: 1.5rem 1rem;
+    min-height: 130px; /* Enhanced touch target */
+    border-radius: 1rem;
+    text-align: center;
   }
 
   .statValue {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
   }
 
   .statIcon {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.875rem;
   }
 
   .statLabel {
-    font-size: 0.875rem;
+    font-size: 1rem;
+    font-weight: 500;
   }
+
+  /* Enhanced mobile animations */
+  .statCard {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+
+  .statCard:nth-child(1) { animation-delay: 0.2s; }
+  .statCard:nth-child(2) { animation-delay: 0.3s; }
+  .statCard:nth-child(3) { animation-delay: 0.4s; }
 
   /* Reduce floating animation on mobile */
   @media (prefers-reduced-motion: reduce) {
     .floatingDecoration {
+      animation: none;
+    }
+
+    .statCard {
       animation: none;
     }
   }

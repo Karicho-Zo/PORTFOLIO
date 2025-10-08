@@ -1520,6 +1520,12 @@ textarea:valid {
   /* Extra small devices (phones) */
   html {
     font-size: 14px;
+    -webkit-text-size-adjust: 100%; /* Prevent text scaling on orientation change */
+  }
+
+  body {
+    font-size: 16px; /* Ensure good base readability */
+    line-height: 1.6;
   }
 
   .container {
@@ -1531,45 +1537,76 @@ textarea:valid {
     padding: 2rem 0;
   }
 
-  /* Typography for mobile */
+  /* Enhanced Typography for mobile */
   h1 {
     font-size: clamp(1.75rem, 8vw, 2.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   h2 {
     font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.25;
   }
 
   h3 {
     font-size: clamp(1.25rem, 5vw, 1.75rem);
+    line-height: 1.3;
   }
 
-  /* Button sizing for touch */
+  h4 {
+    font-size: clamp(1.125rem, 4vw, 1.5rem);
+  }
+
+  h5, h6 {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  /* Enhanced Button sizing for touch */
   .btn {
     padding: 1rem 1.5rem;
     font-size: 1rem;
-    min-height: 48px; /* Touch target size */
-    min-width: 48px;
+    min-height: 52px; /* Enhanced touch target size */
+    min-width: 52px;
+    border-radius: 0.75rem; /* Slightly more rounded for mobile */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
   }
 
-  /* Form inputs for mobile */
+  /* Enhanced Form inputs for mobile */
   input, textarea, select {
     font-size: 16px; /* Prevents zoom on iOS */
     padding: 1rem;
-    min-height: 48px;
+    min-height: 52px;
+    border-radius: 0.5rem;
+    border: 2px solid var(--border-color);
+    transition: border-color 0.2s ease;
   }
 
-  /* Grid adjustments */
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+
+  /* Enhanced Grid adjustments */
   .grid-cols-2, .grid-cols-3, .grid-cols-4 {
     grid-template-columns: 1fr;
   }
 
-  /* Flex direction changes */
+  /* Enhanced Flex direction changes */
   .flex-row {
     flex-direction: column;
   }
 
-  /* Spacing adjustments */
+  /* Enhanced Spacing adjustments */
   .gap-4, .gap-6, .gap-8, .gap-12 {
     gap: 1rem;
   }
@@ -1581,6 +1618,32 @@ textarea:valid {
   .py-4, .py-6, .py-8 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+  }
+
+  /* Enhanced mobile utilities */
+  .text-xs {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .text-sm {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  /* Better mobile card spacing */
+  .card, [class*="card"] {
+    margin-bottom: 1.5rem;
+    border-radius: 0.75rem;
+  }
+
+  /* Enhanced mobile shadows */
+  .shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
 }
 
