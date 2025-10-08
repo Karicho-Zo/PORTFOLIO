@@ -41,38 +41,69 @@ const Contact: React.FC = () => {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
+    // EmailJS configuration
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('EmailJS configuration missing:', { serviceId, templateId, publicKey })
+      setSubmitStatus('error')
+      setIsSubmitting(false)
+      return
+    }
+
+    // Prepare email template parameters - matching EmailJS template variables
+    const templateParams = {
+      from_name: data.name,
+      from_email: data.email,
+      to_email: import.meta.env.VITE_CONTACT_EMAIL || 'isaackaricho@gmail.com',
+      subject: data.subject,
+      message: data.message,
+      reply_to: data.email,
+      // Additional fields that might be expected by the template
+      user_name: data.name,
+      user_email: data.email,
+      user_subject: data.subject,
+      user_message: data.message,
+    }
+
     try {
-      // EmailJS configuration
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      // Send email using EmailJS with timeout
+      const emailJsResponse = await Promise.race([
+        emailjs.send(serviceId, templateId, templateParams, publicKey),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('EmailJS request timeout')), 10000)
+        )
+      ])
 
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error('EmailJS configuration missing. Please check your .env file.')
-      }
-
-      // Prepare email template parameters
-      const templateParams = {
-        from_name: data.name,
-        from_email: data.email,
-        to_email: import.meta.env.VITE_CONTACT_EMAIL || 'isaackaricho@gmail.com',
-        subject: data.subject,
-        message: data.message,
-        reply_to: data.email,
-      }
-
-      // Send email using EmailJS
-      await emailjs.send(
-        serviceId,
-        templateId,
-        templateParams,
-        publicKey
-      )
+      console.log('EmailJS response:', emailJsResponse)
 
       setSubmitStatus('success')
       reset()
     } catch (error) {
       console.error('Error sending message:', error)
+      console.error('EmailJS Error Details:', {
+        serviceId: serviceId,
+        templateId: templateId,
+        templateParams: templateParams,
+        error: error instanceof Error ? error.message : error
+      })
+
+      // Provide more specific error messages
+      let errorMessage = 'Failed to send message. Please try again.'
+
+      if (error instanceof Error) {
+        if (error.message.includes('template')) {
+          errorMessage = 'Email template configuration issue. Please contact support.'
+        } else if (error.message.includes('network') || error.message.includes('fetch')) {
+          errorMessage = 'Network error. Please check your connection and try again.'
+        } else if (error.message.includes('rate limit') || error.message.includes('limit')) {
+          errorMessage = 'Too many requests. Please wait a moment and try again.'
+        }
+      }
+
+      // For now, still show generic message but log specific errors
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
