@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiGithub, FiExternalLink, FiX, FiFilter } from 'react-icons/fi'
 import styles from './Projects.module.css'
 import Carsokoni from '../assets/Carsokoni.jpg'
+import Explore from '../assets/Explore.jpg'
+import Portfolio from '../assets/Portfolio.jpg'
 
 interface Project {
   id: number
@@ -36,27 +38,27 @@ const Projects: React.FC = () => {
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates.',
-      longDescription: 'A React-based task management application with real-time collaboration features, drag-and-drop functionality, and team management capabilities. Uses Socket.io for real-time updates and Firebase for data persistence.',
-      image: '/api/placeholder/400/250',
-      technologies: ['React', 'Socket.io', 'Firebase', 'Material-UI'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+      title: 'ExploreAfrica Travel Blog',
+      description: 'A responsive tours and travel website built with React, Node.js, JavaScript and Css.',
+      longDescription: 'ExploreAfrica is a dynamic travel blog platform that showcases the beauty of Africa through engaging content, stunning visuals, and user-generated reviews. Features include trip planning tools, interactive maps, and social media integration to connect travelers worldwide.',
+      image: Explore,
+      technologies: ['React', 'Javascript', 'Node.js', 'CSS'],
+      githubUrl: 'https://github.com/Karicho-Zo/TOURS-AND-TRAVEL ',
+      liveUrl: 'https://tours-and-travel-taupe.vercel.app',
       category: 'web',
       featured: true,
     },
     {
       id: 3,
-      title: 'Weather Mobile App',
-      description: 'A React Native weather application with location-based forecasts.',
-      longDescription: 'A cross-platform mobile application built with React Native that provides accurate weather forecasts, interactive maps, and severe weather alerts. Features offline capability and push notifications.',
-      image: '/api/placeholder/400/250',
-      technologies: ['React Native', 'TypeScript', 'Redux', 'Weather API'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      category: 'mobile',
-      featured: false,
+      title: 'Portfolio Website',
+      description: ' A responsive personal portfolio website built with React.js, HTML, TypeScrpt and CSS',
+      longDescription: 'A sleek and modern portfolio website to showcase my projects, skills, and experience. Features include smooth scrolling, responsive design, project galleries, and contact forms to connect with potential clients and employers.',
+      image: Portfolio,
+      technologies: ['React', 'TypeScript', 'CSS', 'Node.js'],
+      githubUrl: 'https://github.com/Karicho-Zo/PORTFOLIO',
+      liveUrl: 'https://portfolio-8pl7-cyan.vercel.app/',
+      category: 'web',
+      featured: true,
     },
   ]
 
